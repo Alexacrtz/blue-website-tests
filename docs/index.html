@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Commerce Enterprises — Material de Osteosíntesis y Traumatología</title>
+<meta name="description" content="Blue Commerce Enterprises: distribución de material de osteosíntesis y traumatología. Implantes, instrumental y equipo de poder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-primary:#0B5FCF;   --blue-dark:#0F2D58;      --blue-light:#E8F2FF;     --gray-dark:#1F2937;      --gray-medium:#6B7280;    --gray-light:#F6FAFC;     --accent:#14B8A6;         --line:#E1E8F0;
+    --radius:10px;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'IBM Plex Sans',sans-serif;color:var(--gray-dark);background:var(--gray-light);line-height:1.6;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--blue-dark);}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--blue-primary);display:inline-block;margin-bottom:14px;
+    background:var(--blue-light);border:1px solid rgba(11,95,207,0.18);
+    padding:6px 14px;border-radius:999px;font-weight:600;
+  }
+  .hero .eyebrow{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.25);color:#fff;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  .plate-divider{width:100%;height:34px;overflow:hidden;opacity:0.5;}
+  .plate-divider svg{width:100%;height:100%;display:block;}
+
+  /* header */
+  header{position:sticky;top:0;z-index:60;background:rgba(15,45,88,0.97);backdrop-filter:blur(6px);}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Space Grotesk',sans-serif;color:#fff;display:flex;align-items:center;gap:9px;text-decoration:none;}
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--blue-primary);display:inline-block;flex-shrink:0;}
+  .logo .logo-text{display:flex;flex-direction:column;line-height:1.15;}
+  .logo .logo-text .l1{font-weight:700;font-size:1.12rem;}
+  .logo .logo-text .l2{font-size:0.56rem;letter-spacing:0.16em;color:#8FB4DD;font-family:'IBM Plex Mono',monospace;}
+  nav{display:flex;align-items:center;}
+  nav ul{list-style:none;display:flex;gap:26px;align-items:center;}
+  nav > ul > li{position:relative;}
+  nav a{color:#DCE6F1;text-decoration:none;font-size:0.92rem;font-weight:500;transition:color .15s ease;}
+  nav a:hover, nav a:focus-visible{color:#fff;}
+  nav a:focus-visible{outline:2px solid var(--blue-primary);outline-offset:4px;}
+  .nav-cta{background:var(--blue-primary);color:#fff!important;padding:9px 18px;border-radius:6px;font-weight:600!important;}
+  .nav-cta:hover{background:#0A52B3;}
+
+  .dropdown-trigger{display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;font:inherit;color:#DCE6F1;padding:0;}
+  .dropdown-trigger svg{width:13px;height:13px;stroke:#DCE6F1;transition:transform .15s ease;}
+  .has-dropdown[aria-expanded="true"] .dropdown-trigger svg{transform:rotate(180deg);}
+
+  .mega-simple{
+    position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);
+    background:#fff;border-radius:var(--radius);box-shadow:0 18px 40px rgba(15,45,88,0.18);
+    padding:26px;width:620px;display:none;
+    grid-template-columns:repeat(4,1fr);gap:22px;
+  }
+  .mega-simple.open{display:grid;}
+  .cat-col h4{
+    font-size:0.86rem;color:var(--blue-dark);margin-bottom:10px;padding-bottom:8px;
+    border-bottom:2px solid var(--blue-light);
+  }
+  .cat-col ul{list-style:none;}
+  .cat-col li{margin-bottom:7px;}
+  .cat-col a{color:var(--gray-medium);font-size:0.84rem;text-decoration:none;}
+  .cat-col a:hover{color:var(--blue-primary);}
+
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .nav-toggle span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#1C7FC4 0%,#164E8C 45%,#0B2545 100%);color:#fff;padding:96px 0 70px;}
+  .hero-dots{display:flex;justify-content:center;gap:8px;padding-bottom:34px;position:relative;}
+  .hero-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);display:block;}
+  .hero-dots span.active{background:#fff;width:22px;border-radius:5px;}
+  .hero-plate-bg{position:absolute;right:-110px;top:50%;transform:translateY(-50%) rotate(-8deg);width:620px;opacity:0.12;pointer-events:none;}
+  .hero-inner{position:relative;max-width:620px;}
+  .hero h1{font-size:clamp(2.1rem,4.5vw,3.05rem);line-height:1.15;color:#fff;margin-bottom:20px;}
+  .hero h1 span{color:#7EB3FF;}
+  .hero p.lead{font-size:1.06rem;color:#C6D6EA;max-width:500px;margin-bottom:30px;}
+  .btn-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:6px;font-weight:600;text-decoration:none;font-size:0.95rem;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;border:1.5px solid transparent;}
+  .btn:focus-visible{outline:2px solid #7EB3FF;outline-offset:3px;}
+  .btn-primary{background:var(--blue-primary);color:#fff;}
+  .btn-hero{text-transform:uppercase;letter-spacing:0.05em;font-size:0.85rem;padding:16px 30px;box-shadow:0 10px 24px rgba(11,95,207,0.35);}
+  .btn-primary:hover{background:#0A52B3;transform:translateY(-2px);box-shadow:0 8px 20px rgba(11,95,207,0.35);}
+  .btn-ghost{border-color:rgba(255,255,255,0.35);color:#fff;}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.06);}
+
+  /* trust strip */
+  .trust-strip{background:#fff;border-bottom:1px solid var(--line);}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:34px 0;}
+  .trust-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:0 10px;}
+  .trust-item .ic{width:46px;height:46px;border-radius:10px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;}
+  .trust-item .ic svg{width:22px;height:22px;stroke:var(--blue-primary);}
+  .trust-item h4{font-size:0.9rem;color:var(--blue-dark);font-family:'Space Grotesk',sans-serif;}
+  .trust-item p{font-size:0.78rem;color:var(--gray-medium);}
+
+  section{padding:80px 0;}
+  .section-head{max-width:600px;margin-bottom:40px;}
+  .section-head h2{font-size:clamp(1.5rem,3vw,2rem);}
+  .section-head p{color:var(--gray-medium);margin-top:10px;font-size:1rem;}
+
+  /* quienes somos */
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
+  .about-copy p{color:var(--gray-medium);margin-bottom:16px;}
+  .stat-row{display:flex;gap:32px;margin-top:26px;flex-wrap:wrap;}
+  .stat{border-left:3px solid var(--blue-primary);padding-left:14px;}
+  .stat .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.55rem;color:var(--blue-dark);display:block;}
+  .stat .lbl{font-size:0.8rem;color:var(--gray-medium);}
+  .about-visual{background:var(--blue-dark);border-radius:var(--radius);aspect-ratio:4/3;position:relative;overflow:hidden;}
+  .about-visual svg{position:absolute;inset:0;width:100%;height:100%;}
+
+  /* lineas de producto */
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+  .product-card{
+    position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;
+    display:flex;align-items:flex-end;text-decoration:none;isolation:isolate;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .product-card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(15,45,88,0.28);}
+  .product-card::before{
+    content:"";position:absolute;inset:0;z-index:0;background:var(--card-bg);
+  }
+  .product-card .card-motif{position:absolute;top:0;right:0;width:62%;height:62%;opacity:0.16;z-index:0;}
+  .product-card .card-motif svg{width:100%;height:100%;stroke:#fff;fill:none;}
+  .card-bottom{position:relative;z-index:1;width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 18px;}
+  .card-bottom span.card-title{color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;}
+  .card-arrow{
+    width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.16);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .card-arrow svg{width:16px;height:16px;stroke:#fff;}
+  .product-card:hover .card-arrow{background:#fff;transform:translateX(3px);}
+  .product-card:hover .card-arrow svg{stroke:var(--blue-primary);}
+  .product-note{margin-top:26px;font-size:0.85rem;color:var(--gray-medium);border-left:3px solid var(--blue-light);padding-left:14px;}
+
+  /* marcas */
+  .brands-section{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .brands-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;align-items:center;}
+  .brand-badge{
+    height:64px;border:1px solid var(--line);border-radius:8px;background:var(--gray-light);
+    display:flex;align-items:center;justify-content:center;color:var(--gray-medium);
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.85rem;letter-spacing:0.02em;
+  }
+
+  /* cta banner */
+  .cta-banner{background:var(--blue-light);}
+  .cta-banner .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;padding:30px 24px;}
+  .cta-banner h3{font-size:1.15rem;color:var(--blue-dark);}
+  .cta-banner p{color:var(--gray-medium);font-size:0.9rem;margin-top:4px;}
+
+  /* ubicacion */
+  .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;}
+  .map-frame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:320px;}
+  .map-frame iframe{width:100%;height:100%;min-height:320px;border:0;display:block;}
+  .location-info{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
+  .info-row{display:flex;gap:14px;margin-bottom:20px;}
+  .info-row .ico{width:20px;height:20px;flex-shrink:0;stroke:var(--blue-primary);margin-top:3px;}
+  .info-row h4{font-size:0.95rem;margin-bottom:3px;color:var(--blue-dark);}
+  .info-row p{color:var(--gray-medium);font-size:0.92rem;}
+
+  /* contacto */
+  .contact-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;}
+  .contact-form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:0.85rem;font-weight:600;margin-bottom:6px;color:var(--blue-dark);}
+  .field input,.field textarea{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:6px;font-family:inherit;font-size:0.95rem;background:var(--gray-light);color:var(--gray-dark);transition:border-color .15s ease;}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--blue-primary);background:#fff;}
+  .field textarea{resize:vertical;min-height:110px;}
+  .form-note{font-size:0.78rem;color:var(--gray-medium);margin-top:14px;}
+  .form-note a{color:var(--blue-primary);text-decoration:underline;}
+  #form-status{margin-top:14px;font-size:0.9rem;font-weight:600;display:none;}
+  #form-status.ok{color:#0F8A5F;display:block;}
+
+  .contact-aside{display:flex;flex-direction:column;gap:22px;}
+  .aside-card{background:var(--blue-dark);color:#fff;border-radius:var(--radius);padding:26px;}
+  .aside-card h4{font-size:0.95rem;color:#fff;margin-bottom:10px;font-family:'Space Grotesk',sans-serif;}
+  .aside-card p{color:#C6D6EA;font-size:0.92rem;}
+  .social-row{display:flex;gap:10px;margin-top:16px;}
+  .social-row a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;transition:background .15s ease;}
+  .social-row a:hover{background:var(--blue-primary);}
+  .social-row svg{width:17px;height:17px;stroke:#fff;}
+
+  /* footer */
+  footer{background:var(--blue-dark);color:#B9C6D6;padding:44px 0 26px;}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;margin-bottom:30px;}
+  .footer-grid .logo{margin-bottom:10px;}
+  .footer-col h5{color:#fff;font-size:0.85rem;margin-bottom:12px;font-family:'Space Grotesk',sans-serif;}
+  .footer-col ul{list-style:none;}
+  .footer-col li{margin-bottom:8px;}
+  .footer-col a{color:#B9C6D6;text-decoration:none;font-size:0.88rem;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.8rem;color:#8FA1B6;}
+
+  /* responsive */
+  @media (max-width:860px){
+    nav{position:fixed;top:60px;left:0;right:0;background:var(--blue-dark);max-height:calc(100vh - 60px);overflow-y:auto;transform:translateY(-130%);transition:transform .2s ease;}
+    nav.open{transform:translateY(0);}
+    nav > ul{flex-direction:column;align-items:stretch;gap:0;padding:10px 24px 20px;}
+    nav > ul > li{border-bottom:1px solid rgba(255,255,255,0.08);}
+    nav a, .dropdown-trigger{display:flex;width:100%;padding:14px 0;justify-content:space-between;}
+    .nav-toggle{display:block;}
+    .mega-simple{position:static;transform:none;width:100%;box-shadow:none;border-radius:0;background:#0C3567;padding:6px 0 14px;grid-template-columns:1fr 1fr;gap:18px 24px;}
+    .cat-col h4{color:#fff;border-bottom-color:rgba(255,255,255,0.15);}
+    .cat-col a{color:#AEC3DC;}
+    .about-grid,.location-grid,.contact-grid{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:1fr 1fr;}
+    .hero-plate-bg{opacity:0.08;width:400px;}
+    section{padding:56px 0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- header -->
+<header>
+  <div class="nav-inner">
+    <a href="#inicio" class="logo"><span class="dot"></span><span class="logo-text"><span class="l1">Blue Commerce</span><span class="l2">ENTERPRISES</span></span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li class="has-dropdown" id="dropdownItem">
+          <button class="dropdown-trigger" id="dropdownTrigger" aria-expanded="false">
+            Productos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="mega-simple" id="megaPanel">
+            <div class="cat-col">
+              <h4>Implantes</h4>
+              <ul>
+                <li><a href="#lineas">Placas</a></li>
+                <li><a href="#lineas">Tornillos</a></li>
+                <li><a href="#lineas">Clavos intramedulares</a></li>
+              </ul>
+            </div>
+            <div class="cat-col">
+              <h4>Instrumental</h4>
+              <ul>
+                <li><a href="#lineas">Instrumentales traumatologìa</a></li>
+                <li><a href="#lineas">Instrumentales artroscopia</a></li>
+                <li><a href="#lineas">Instrumental columna</a></li>
+              </ul>
+            </div>
+            <div class="cat-col">
+              <h4>Equipo de poder</h4>
+              <ul>
+                <li><a href="#lineas">Perforadores y Sierras</a></li>
+                <li><a href="#lineas">Equipos de poder especializados</a></li>
+                <li><a href="#lineas">Accesorios</a></li>
+              </ul>
+            </div>
+            <div class="cat-col">
+              <h4>Artroscopia</h4>
+              <ul>
+                <li><a href="#lineas">Implantes artroscopia</a></li>
+                <li><a href="#lineas">Accesorios artroscopia</a></li>
+                <li><a href="#lineas">Pinzas artroscopia</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li><a href="#quienes-somos">Quiénes somos</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+        <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- hero -->
+  <section class="hero" id="inicio">
+    <svg class="hero-plate-bg" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="10" y="30" width="380" height="40" rx="20" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="45" cy="50" r="8" fill="#ffffff"/><circle cx="105" cy="50" r="8" fill="#ffffff"/>
+      <circle cx="165" cy="50" r="8" fill="#ffffff"/><circle cx="225" cy="50" r="8" fill="#ffffff"/>
+      <circle cx="285" cy="50" r="8" fill="#ffffff"/><circle cx="345" cy="50" r="8" fill="#ffffff"/>
+    </svg>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Material de osteosíntesis y traumatología</span>
+      <h1>Tecnología que <span>impulsa la salud</span> ortopédica.</h1>
+      <p class="lead">Blue Commerce Enterprises distribuye implantes, instrumental y equipo de poder para cirugía ortopédica, con el respaldo técnico que cada procedimiento exige.</p>
+      <div class="btn-row">
+        <a href="#lineas" class="btn btn-primary btn-hero">Conoce nuestros productos</a>
+        <a href="#contacto" class="btn btn-ghost">Contáctanos</a>
+      </div>
+    </div>
+    <div class="hero-dots" aria-hidden="true">
+      <span></span><span class="active"></span><span></span>
+    </div>
+  </section>
+
+  <!-- trust strip -->
+  <div class="trust-strip">
+    <div class="wrap trust-grid">
+      <div class="trust-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 14.8 7.1 17.2 8 11.7 4 7.8l5.5-.8z"/></svg></div>
+        <h4>Calidad certificada</h4>
+        <p>Marcas y productos de clase mundial</p>
+      </div>
+      <div class="trust-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a4 4 0 100-8 4 4 0 000 8zM17 11a4 4 0 100-8 4 4 0 000 8zM2 21v-1a5 5 0 015-5h1M22 21v-1a5 5 0 00-5-5h-1"/></svg></div>
+        <h4>Acompañamiento especializado</h4>
+        <p>De principio a fin</p>
+      </div>
+      <div class="trust-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg></div>
+        <h4>Disponibilidad y logística</h4>
+        <p>Entrega eficiente en todo México</p>
+      </div>
+      <div class="trust-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6M21 19a2 2 0 01-2 2h-1v-7h3zM3 19a2 2 0 002 2h1v-7H3z"/></svg></div>
+        <h4>Soporte técnico</h4>
+        <p>Siempre a tu lado</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- quienes somos -->
+  <section id="quienes-somos">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <span class="eyebrow">Quiénes somos</span>
+        <h2>Un solo punto de contacto para todo el ciclo del implante.</h2>
+        <p>Blue Commerce Enterprises nace para acompañar a cirujanos, hospitales y distribuidores en cada etapa del procedimiento ortopédico: desde la selección del implante correcto hasta el instrumental necesario el día de la cirugía.</p>
+        <p>Trabajamos con un catálogo enfocado en traumatología y ortopedia, priorizando disponibilidad, trazabilidad y tiempos de respuesta cortos ante cirugías programadas.</p>
+        <div class="stat-row">
+          <div class="stat"><span class="num">+15</span><span class="lbl">años de operación</span></div>
+          <div class="stat"><span class="num">+5000</span><span class="lbl">tipos de productos</span></div>
+          <div class="stat"><span class="num">24/7</span><span class="lbl">soporte tècnico/span></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="60" y="90" width="180" height="34" rx="17" fill="none" stroke="#0B5FCF" stroke-width="2.5"/>
+          <circle cx="82" cy="107" r="6" fill="#0B5FCF"/><circle cx="120" cy="107" r="6" fill="#0B5FCF"/>
+          <circle cx="158" cy="107" r="6" fill="#0B5FCF"/><circle cx="196" cy="107" r="6" fill="#0B5FCF"/><circle cx="218" cy="107" r="6" fill="#0B5FCF"/>
+          <rect x="30" y="98" width="240" height="18" rx="9" fill="none" stroke="#4A83C4" stroke-width="1.5" opacity="0.5" transform="rotate(-4 150 107)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="plate-divider" aria-hidden="true">
+    <svg viewBox="0 0 800 34" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="17" x2="800" y2="17" stroke="#6B7280" stroke-width="1"/>
+      <g fill="#6B7280">
+        <circle cx="20" cy="17" r="3"/><circle cx="90" cy="17" r="3"/><circle cx="160" cy="17" r="3"/>
+        <circle cx="230" cy="17" r="3"/><circle cx="300" cy="17" r="3"/><circle cx="370" cy="17" r="3"/>
+        <circle cx="440" cy="17" r="3"/><circle cx="510" cy="17" r="3"/><circle cx="580" cy="17" r="3"/>
+        <circle cx="650" cy="17" r="3"/><circle cx="720" cy="17" r="3"/><circle cx="790" cy="17" r="3"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- lineas de producto -->
+  <section id="lineas">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Nuestras especialidades</span>
+        <h2>Catálogo enfocado en traumatología</h2>
+        <p>Categorías generales de producto. Para cotizaciones, existencias o fichas técnicas, contáctanos directamente.</p>
+      </div>
+      <div class="product-grid">
+        <a href="#contacto" class="product-card" style="--card-bg:linear-gradient(135deg,#0F2D58 0%,#1E4E8C 100%);">
+          <div class="card-motif"><svg viewBox="0 0 100 100"><rect x="20" y="40" width="60" height="16" rx="8"/><circle cx="30" cy="48" r="3" fill="#fff" stroke="none"/><circle cx="45" cy="48" r="3" fill="#fff" stroke="none"/><circle cx="60" cy="48" r="3" fill="#fff" stroke="none"/><circle cx="72" cy="48" r="3" fill="#fff" stroke="none"/></svg></div>
+          <div class="card-bottom">
+            <span class="card-title">Implantes</span>
+            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+        <a href="#contacto" class="product-card" style="--card-bg:linear-gradient(135deg,#123A70 0%,#0B5FCF 100%);">
+          <div class="card-motif"><svg viewBox="0 0 100 100"><path d="M35 15L85 65M60 40l-5 5M70 30l6-6a8 8 0 00-11-11l-6 6M20 80l-6 6a8 8 0 0011 11l6-6M45 55L15 85"/></svg></div>
+          <div class="card-bottom">
+            <span class="card-title">Instrumental</span>
+            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+        <a href="#contacto" class="product-card" style="--card-bg:linear-gradient(135deg,#0B5FCF 0%,#3A7BD5 100%);">
+          <div class="card-motif"><svg viewBox="0 0 100 100"><rect x="30" y="15" width="34" height="55" rx="6"/><path d="M47 35v14M40 42h14"/></svg></div>
+          <div class="card-bottom">
+            <span class="card-title">Equipo de poder</span>
+            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+        <a href="#contacto" class="product-card" style="--card-bg:linear-gradient(135deg,#1E4E8C 0%,#4A83C4 100%);">
+          <div class="card-motif"><svg viewBox="0 0 100 100"><rect x="18" y="20" width="26" height="40" rx="3"/><rect x="52" y="30" width="26" height="30" rx="3"/></svg></div>
+          <div class="card-bottom">
+            <span class="card-title">Artroscopia</span>
+            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+      </div>
+      <p class="product-note">Esta sección es solo informativa: no incluye precios ni existencias en tiempo real. El control de inventario se gestiona internamente.</p>
+    </div>
+  </section>
+
+  <!-- marcas -->
+  <section class="brands-section">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:26px;">
+        <span class="eyebrow">Marcas</span>
+        <h2 style="font-size:1.3rem;">Marcas que representamos</h2>
+      </div>
+      <div class="brands-grid">
+        <div class="brand-badge">Zimed</div>
+        <div class="brand-badge">Next Shoulder</div>
+        <div class="brand-badge">Aleda</div>
+        <div class="brand-badge">Net</div>
+        <div class="brand-badge">Orange Orthopedic</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- cta banner -->
+  <div class="cta-banner">
+    <div class="wrap">
+      <div>
+        <h3>¿Buscas una solución para tu institución?</h3>
+        <p>Nuestro equipo te asesora para encontrar la mejor opción.</p>
+      </div>
+      <a href="#contacto" class="btn btn-primary">Contáctanos →</a>
+    </div>
+  </div>
+
+  <!-- ubicacion -->
+  <section id="ubicacion">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Ubicación</span>
+        <h2>¿Dónde estamos?</h2>
+      </div>
+      <div class="location-grid">
+        <div class="map-frame">
+          <iframe
+            src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120767.68076001076!2d-99.32264989848996!3d18.931835714859165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdde499b22afad%3A0xc9b6bcb5b9b790a1!2sCuernavaca%2C%20Mor.!5e0!3m2!1ses-419!2smx!4v1785737534732!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de Blue Commerce Enterprises"></iframe>
+        </div>
+        <div class="location-info">
+          <div class="info-row">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h4>Dirección</h4>
+              <p>Cuernavaca, Morelos, México</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div>
+              <h4>Horario de atención</h4>
+              <p>Lunes a viernes, 9:00–19:00 hrs</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8.1 9.7a16 16 0 006.2 6.2l1.2-1.2a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z"/></svg>
+            <div>
+              <h4>Teléfono</h4>
+              <p>777 100 0842</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="plate-divider" aria-hidden="true">
+    <svg viewBox="0 0 800 34" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="17" x2="800" y2="17" stroke="#6B7280" stroke-width="1"/>
+      <g fill="#6B7280">
+        <circle cx="20" cy="17" r="3"/><circle cx="90" cy="17" r="3"/><circle cx="160" cy="17" r="3"/>
+        <circle cx="230" cy="17" r="3"/><circle cx="300" cy="17" r="3"/><circle cx="370" cy="17" r="3"/>
+        <circle cx="440" cy="17" r="3"/><circle cx="510" cy="17" r="3"/><circle cx="580" cy="17" r="3"/>
+        <circle cx="650" cy="17" r="3"/><circle cx="720" cy="17" r="3"/><circle cx="790" cy="17" r="3"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- contacto -->
+  <section id="contacto">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Contacto</span>
+        <h2>Hablemos de tu próximo procedimiento</h2>
+        <p>Escríbenos para cotizaciones, disponibilidad de material o dudas técnicas.</p>
+      </div>
+      <div class="contact-grid">
+        <form class="contact-form" id="contactForm">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="field">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" required>
+          </div>
+          <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="border:none;cursor:pointer;">Enviar mensaje</button>
+          <p class="form-note">Al enviar este formulario aceptas nuestro <a href="aviso-privacidad.html">Aviso de Privacidad</a>.</p>
+          <p id="form-status" role="status"></p>
+        </form>
+        <div class="contact-aside">
+          <div class="aside-card">
+            <h4>Datos directos</h4>
+            <p>Correo: [contacto@bluecommerce.com]<br>Teléfono: 777 100 0842</p>
+          </div>
+          <div class="aside-card">
+            <h4>Síguenos</h4>
+            <p>Encuéntranos también en redes sociales.</p>
+            <div class="social-row">
+              <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+              <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9h4v2a4 4 0 018 0v10h-4v-9a2 2 0 00-4 0v9h-4z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#inicio" class="logo"><span class="dot"></span><span class="logo-text"><span class="l1">Blue Commerce</span><span class="l2">ENTERPRISES</span></span></a>
+        <p style="font-size:0.85rem;max-width:260px;">Material de osteosíntesis y traumatología.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#lineas">Productos</a></li>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="aviso-privacidad.html">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Blue Commerce Enterprises. Todos los derechos reservados.</span>
+      <span>Sitio institucional — proyecto integrador</span>
+    </div>
+  </div>
+</footer>
+
+<!-- script -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  const dropdownItem = document.getElementById('dropdownItem');
+  const dropdownTrigger = document.getElementById('dropdownTrigger');
+  const megaPanel = document.getElementById('megaPanel');
+
+  function closeDropdown(){
+    megaPanel.classList.remove('open');
+    dropdownItem.setAttribute('aria-expanded', 'false');
+  }
+  dropdownTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = megaPanel.classList.toggle('open');
+    dropdownItem.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', (e) => {
+    if (!dropdownItem.contains(e.target)) closeDropdown();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDropdown();
+  });
+  megaPanel.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      closeDropdown();
+      navMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+  navMenu.querySelectorAll('a:not(.mega-simple a)').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.textContent = 'Gracias, tu mensaje fue registrado. Te contactaremos pronto.';
+    status.className = 'ok';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
