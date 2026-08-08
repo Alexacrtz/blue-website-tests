@@ -72,6 +72,6 @@ Cosas que no entraron en esta primera versión pero podrían agregarse después:
 
 ## Producto
 
-- Video: *(pendiente de agregar el link)*
+- Video: https://youtu.be/hFuAx3NlVoQ?si=718ulNmIwaWbDQyE
 - Sitio publicado: https://alexacrtz.github.io/blue-website-tests/
 - No aplica WAR/JAR, porque es un sitio estático sin backend.
