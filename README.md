@@ -17,7 +17,7 @@ Este proyecto es el sitio web de Blue Commerce Enterprises, una empresa que vend
 
 **El problema:** la empresa ya tenía redes sociales y CRM, pero no tenía página web. Eso le restaba formalidad frente a hospitales y clientes.
 
-**La solución:** un sitio informativo con lo básico: quiénes somos, categorías de producto, ubicación y contacto. Nada complicado, sin base de datos ni backend.
+**La solución:** un sitio informativo con lo básico: quiénes somos, categorías de producto, ubicación y contacto. No complicado, sin base de datos ni backend.
 
 **Arquitectura:** el sitio son solo archivos HTML/CSS/JS guardados en la carpeta `docs`, publicados con GitHub Pages. El formulario de contacto usa Formspree para enviar los correos, y el mapa es un iframe de Google Maps. Aparte, hay un proyecto de pruebas hecho con Maven, JUnit y HtmlUnit.
 
